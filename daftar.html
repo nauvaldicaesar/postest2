@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="daftar.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"
+        integrity="sha256-a2yjHM4jnF9f54xUQakjZGaqYs/V1CYvWpoqZzC2/Bw=" crossorigin="anonymous"></script>
+    <title>Rays Project</title>
+</head>
+<body>
+    <nav class="header">
+        <a id="login" href="login.html">Login</a>
+        <a href="daftar.html">Daftar</a>
+        <a href="about.html">About</a>
+        <a href="index.html">Home</a>
+    </nav>
+
+    <div class="body_form">
+      <form id="form">
+        <label for="text">Nama:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <br>
+        <label for="text">Nama Akun:</label><br>
+        <input type="text" id="account" name="account"><br>
+        <br>
+        <label for="password">Nomor Telepon / WhatsApp:</label><br>
+        <input type="password" id="telp" name="telp"><br>
+        <br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br>
+        <br>
+        <label for="radio">Rank Saat Ini:</label><br>
+        <input type="radio" name="radio" value="option1">Warrior<br>
+        <input type="radio" name="radio" value="option2">Elite<br>
+        <input type="radio" name="radio" value="option3">Master<br>
+        <input type="radio" name="radio" value="option4">Grandmaster<br>
+        <input type="radio" name="radio" value="option5">Epic<br>
+        <input type="radio" name="radio" value="option6">Legend<br>
+        <input type="radio" name="radio" value="option7">Mythic<br>
+        <input type="radio" name="radio" value="option8">Mythical Glory<br>
+        <br>
+        <label for="description">Tujuan Rank, Catatan Untuk Penjoki, Pertanyaan, dsb:</label><br>
+        <textarea name="description" id="desc" cols="70" rows="10"></textarea>
+        <br><br>
+        <label for="checkbox">Aturan :</label><br>
+        <input type="checkbox" id="checkbox1" name="checkbox1" value="check1">Tidak Boleh Kalah<br>
+        <input type="checkbox" id="checkbox2" name="checkbox2" value="check2">Tidak Boleh Pake Hero Power Akun<br>
+        <input type="checkbox" id="checkbox3" name="checkbox3" value="check3">Tidak Boleh Mengubah Pengaturan Item<br>
+        <input type="checkbox" id="checkbox4" name="checkbox4" value="check4">Tidak Boleh Mengubah Pengaturan Emblem<br>
+        <br>
+        <input type="submit" value="Hasilkan Harga">
+      </form>       
+    </div>
+    <footer>
+        <p id="nama"> Nauval Joki </p>
+        <br><br>
+        <div class="sosmed">
+            <a href="wa.me//+6281350975161">Whatsapp</a>
+            <a href="">Instagram</a>
+            <a href="https://www.youtube.com/@NauvalYT">YUtup</a>        
+            <br><br>
+        </div>
+
+        <p>Copyright | All Right 2023</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#form').submit(function (e) { 
+                e.preventDefault();
+                let temp = $(this).serializeArray()
+                let data = {}
+
+                $.each(temp, function (index, value) {
+                    data[value.name] = value.value
+                });
+
+                sessionStorage.setItem("dataUserKey", JSON.stringify(data));
+                window.location = "hasil.html"
+            });
+        });
+    </script>
+</body>
+
+</html>
